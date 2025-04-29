@@ -1,0 +1,41 @@
+version: 1
+configuration:
+  has_webserver: true
+  scoring:
+    command: pip install -r requirements.txt && python3 -m pytest --junit-xml=unit.xml
+    files:
+      - unit.xml
+  ide_config:
+    default_open_files:
+      - app.py
+      - src/document_loader.py
+      - src/rag_chain.py
+      - src/vector_store.py
+    project_menu:
+      run: streamlit run app.py --server.port 8000
+      install: pip install -r requirements.txt
+      test: python3 -m pytest
+  readonly_paths:
+    - tests/test_document_loader.py
+    - tests/test_vector_store.py
+    - tests/test_integration.py
+    - tests/conftest.py
+    - tests/test_rag.py
+  data_source_files:
+    - data/safety-and-security.html.txt
+    - data/how-to-use-x-alerts.html.txt
+    - data/using-x.html.txt
+    - data/twitpic.html.txt
+    - data/mobile-x-not-working.html.txt
+    - data/x-password-reset-on-android.html.txt
+    - data/saving-searches.html.txt
+    - data/x-password-reset-on-iphone.html.txt
+    - data/x-buttons.html.txt
+    - data/x-do-not-track.html.txt
+    - data/x-username-squatting.html.txt
+    - data/translate-posts.html.txt
+    - data/additional-information-request-at-login.html.txt
+    - data/european-union.html.txt
+    - data/x-embed-not-working.html.txt
+    - data/create-x-account-mobile.html.txt
+    - data/whats-happening.html.txt
